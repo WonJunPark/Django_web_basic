@@ -1,0 +1,13 @@
+<!-- 템플릿 네임스페이싱
+ templates 경로 안에 polls 경로를 하나 더 만듬으로써 중복의 위험을 제거한다.
+-->
+
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
